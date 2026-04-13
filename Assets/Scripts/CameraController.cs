@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 
 public class CameraController : MonoBehaviour
@@ -11,6 +12,7 @@ public class CameraController : MonoBehaviour
     public bool isTrigger = false;
     public float CameraSpeed = 2.0f;
     public float LerpAlpha = 0f;
+    
 
 
 
@@ -24,6 +26,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //This script moves the cammera between 2 designated locations.
+
+        
 
         LerpAlpha += Time.deltaTime;
         if(locationB  != null)
@@ -40,6 +44,8 @@ public class CameraController : MonoBehaviour
                 LerpAlpha = 0f;
             }
         }
+
+        //alows us to shose between 2 different waypoints
 
         if (Input.GetKeyDown(KeyCode.A))
         {
