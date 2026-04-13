@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class CameraController : MonoBehaviour
@@ -11,10 +13,9 @@ public class CameraController : MonoBehaviour
     public WaypointScript locationB;
     public bool isTrigger = false;
     public float CameraSpeed = 2.0f;
+    public float LookAtTargetSpeed = 1.0f;
     public float LerpAlpha = 0f;
-    
-
-
+    public GameObject LookAt;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,12 +28,13 @@ public class CameraController : MonoBehaviour
     {
         //This script moves the cammera between 2 designated locations.
 
-        
+        transform.LookAt(LookAt.transform);
 
         LerpAlpha += Time.deltaTime;
         if(locationB  != null)
         {
             transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed);
+            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed));
         }
 
         if (LerpAlpha * CameraSpeed > 1)
