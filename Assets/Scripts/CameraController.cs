@@ -17,6 +17,9 @@ public class CameraController : MonoBehaviour
     public float LerpAlpha = 0f;
     public GameObject LookAt;
 
+    public GameObject Barrier;
+    public GameObject Barrier2;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +30,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //This script moves the cammera between 2 designated locations.
+
 
         transform.LookAt(LookAt.transform);
 
@@ -62,6 +66,21 @@ public class CameraController : MonoBehaviour
             locationB = locationA.waypointPointOptionB;
             LerpAlpha = 0f;
             Debug.Log("D");
+
+
+
+
+            //Barrier Apear/disapear
+
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                Barrier.SetActive(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                Barrier2.SetActive(true);
+            }
         }
     }
 
