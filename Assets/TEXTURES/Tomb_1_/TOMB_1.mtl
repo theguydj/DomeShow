@@ -1,0 +1,48 @@
+# Blender 5.0.0 MTL File: 'Graves.blend'
+# www.blender.org
+
+newmtl Inner_grave_stone_/_Bottom_Tomb_stone_
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd DefaultMaterial_BaseColor.1001.jpg
+map_Pm DefaultMaterial_Metallic.1001.jpg
+map_Pr DefaultMaterial_Roughness.1001.jpg
+map_Bump -bm 1.000000 DefaultMaterial_Normal.1001.jpg
+
+newmtl Rusty_Metal_/_Spikes_/_Gate_
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+Pr 0.800000
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+
+newmtl Tomb_stone_/_Outside_Grave_
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+Pr 0.500000
+Pm 0.300000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
