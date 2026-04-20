@@ -81,6 +81,10 @@ public class CameraController : MonoBehaviour
   
         }
 
+
+
+
+
         if (Triggered == true)
         {
             BlockerLeft.NextBlockerLeft = BlockerLeft.LeftBlocker;
