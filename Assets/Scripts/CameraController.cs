@@ -13,9 +13,6 @@ public class CameraController : MonoBehaviour
     public WaypointScript locationA;
     public WaypointScript locationB;
 
-    public BlockerScript BlockerLeft;
-    public BlockerScript BlockerRight;
-
     public bool isTrigger = false;
     public bool Triggered = false;
 
@@ -25,16 +22,14 @@ public class CameraController : MonoBehaviour
 
     public GameObject LookAt;
     public GameObject Trigger;
-    public GameObject Barrier;
-    public GameObject Barrier2;
+
     
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Barrier.SetActive(false);
-        Barrier2.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -85,11 +80,7 @@ public class CameraController : MonoBehaviour
 
 
 
-        if (Triggered == true)
-        {
-            BlockerLeft.NextBlockerLeft = BlockerLeft.LeftBlocker;
-            BlockerRight.NextBlockerRight = BlockerRight.RightBlocker;
-        }
+        
     }
 
 
