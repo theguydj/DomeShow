@@ -95,26 +95,7 @@ public class CameraController : MonoBehaviour
 
     //Runs this code when a collision box is entered
 
-    private void OnTriggerEnter(Collider Other)
-    {
-        Triggered = false;
-
-        Debug.Log("BloackerScript Started");
-        if (Other.gameObject.tag == "ChoiceLeft")
-        {
-            Debug.Log("BloackerScript Left Worked");
-            Barrier.SetActive(true);
-            Triggered = true;
-        }
-        else if (Other.gameObject.tag == "ChoiceRight")
-        {
-            Debug.Log("BloackerScript Right Worked");
-            Barrier2.SetActive(true);
-            Triggered = true;
-            
-        }
-       
-    }
+   
 
     
 

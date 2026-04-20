@@ -8,31 +8,29 @@ public class CollisionBoxScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        objectToSpawn.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
-    public void nTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("BloackerScript Started");
-        if (other.gameObject.tag == "ChoiceLeft")
+
+        if (other.gameObject.tag == "Player")
         {
             Debug.Log("BloackerScript Left Worked");
             objectToSpawn.SetActive(true);
-            
-        }
-        else if (Other.gameObject.tag == "ChoiceRight")
-        {
-            Debug.Log("BloackerScript Right Worked");
-            Barrier2.SetActive(true);
-            Triggered = true;
 
         }
     }
+
+
+
+
 }

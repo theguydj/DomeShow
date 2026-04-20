@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - ChoiceLeft
-  - ChoiceRight
+  - Blockers
+  - Collision
   layers:
   - Default
   - TransparentFX
