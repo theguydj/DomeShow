@@ -1,3 +1,4 @@
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -11,27 +12,35 @@ public class CameraController : MonoBehaviour
 
     public WaypointScript locationA;
     public WaypointScript locationB;
+
+    public BlockerScript BlockerLeft;
+    public BlockerScript BlockerRight;
+
     public bool isTrigger = false;
+    public bool Triggered = false;
+
     public float CameraSpeed = 2.0f;
     public float LookAtTargetSpeed = 1.0f;
     public float LerpAlpha = 0f;
+
     public GameObject LookAt;
-
+    public GameObject Trigger;
     public GameObject Barrier;
-    //public GameObject Barrier2;
+    public GameObject Barrier2;
+    
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Barrier.SetActive(false);
+        Barrier2.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         //This script moves the cammera between 2 designated locations.
-
-        Barrier.SetActive(false);
 
         transform.LookAt(LookAt.transform);
 
@@ -52,6 +61,8 @@ public class CameraController : MonoBehaviour
             }
         }
 
+
+
         //alows us to shose between 2 different waypoints
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -69,16 +80,36 @@ public class CameraController : MonoBehaviour
             Debug.Log("D");
   
         }
+
+        if (Triggered == true)
+        {
+            BlockerLeft.NextBlockerLeft = BlockerLeft.LeftBlocker;
+            BlockerRight.NextBlockerRight = BlockerRight.RightBlocker;
+        }
     }
+
+
     //Runs this code when a collision box is entered
 
-    private void OnTriggerEnter(Collider collisionBox)
+    private void OnTriggerEnter(Collider Other)
     {
-        if (collisionBox.CompareTag("Player"))
+        Triggered = false;
+
+        Debug.Log("BloackerScript Started");
+        if (Other.gameObject.tag == "ChoiceLeft")
         {
+            Debug.Log("BloackerScript Left Worked");
             Barrier.SetActive(true);
-            Debug.Log("BloackerScript Worked");
+            Triggered = true;
         }
+        else if (Other.gameObject.tag == "ChoiceRight")
+        {
+            Debug.Log("BloackerScript Right Worked");
+            Barrier2.SetActive(true);
+            Triggered = true;
+            
+        }
+       
     }
 
     
