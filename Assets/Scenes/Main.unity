@@ -12480,12 +12480,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationA: {fileID: 853351984}
   locationB: {fileID: 853351984}
+  BlockerLeft: {fileID: 0}
+  BlockerRight: {fileID: 0}
   isTrigger: 0
+  Triggered: 0
   CameraSpeed: 0.2
   LookAtTargetSpeed: 1
   LerpAlpha: 0
   LookAt: {fileID: 2039207142}
+  Trigger: {fileID: 0}
   Barrier: {fileID: 266225551}
+  Barrier2: {fileID: 0}
 --- !u!114 &1482272035
 MonoBehaviour:
   m_ObjectHideFlags: 0

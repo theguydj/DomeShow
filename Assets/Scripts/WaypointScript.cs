@@ -5,7 +5,6 @@ public class WaypointScript : MonoBehaviour
 
     
     public WaypointScript NextWaypoint;
-
     public WaypointScript waypointPointOptionA;
     public WaypointScript waypointPointOptionB;
 
