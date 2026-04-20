@@ -18,12 +18,12 @@ public class CameraController : MonoBehaviour
     public GameObject LookAt;
 
     public GameObject Barrier;
-    public GameObject Barrier2;
+    //public GameObject Barrier2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Barrier.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour
     {
         //This script moves the cammera between 2 designated locations.
 
+        Barrier.SetActive(false);
 
         transform.LookAt(LookAt.transform);
 
@@ -66,24 +67,21 @@ public class CameraController : MonoBehaviour
             locationB = locationA.waypointPointOptionB;
             LerpAlpha = 0f;
             Debug.Log("D");
+  
+        }
+    }
+    //Runs this code when a collision box is entered
 
-
-
-
-            //Barrier Apear/disapear
-
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                Barrier.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                Barrier2.SetActive(true);
-            }
+    private void OnTriggerEnter(Collider collisionBox)
+    {
+        if (collisionBox.CompareTag("Player"))
+        {
+            Barrier.SetActive(true);
+            Debug.Log("BloackerScript Worked");
         }
     }
 
+    
 
-   
+
 }

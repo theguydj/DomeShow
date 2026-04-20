@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BlockerScript : MonoBehaviour
@@ -8,17 +9,36 @@ public class BlockerScript : MonoBehaviour
     //public bool OptionLeft = false;
 
     public GameObject Barrier;
+    //public GameObject Barrier2;
 
     void Start()
     {
-        
+        Barrier.SetActive(false);
+    }
+
+
+
+    //Runs this code when a collision box is entered
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Barrier.SetActive(true);
+            Debug.Log("BloackerScript Worked");
+        }
     }
 
     // Update is called once per frame
+
+
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) 
-            Barrier.SetActive(true);
+       
 
+        
     }
+
+    
 }
