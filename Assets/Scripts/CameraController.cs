@@ -19,9 +19,12 @@ public class CameraController : MonoBehaviour
     public float CameraSpeed = 2.0f;
     public float LookAtTargetSpeed = 1.0f;
     public float LerpAlpha = 0f;
+    public float Offset = 0f;
 
     public GameObject LookAt;
     public GameObject Trigger;
+
+    
 
     
 
@@ -37,14 +40,17 @@ public class CameraController : MonoBehaviour
     {
         //This script moves the cammera between 2 designated locations.
 
-        //transform.LookAt(LookAt.transform);
+        transform.LookAt(LookAt.transform);
 
         LerpAlpha += Time.deltaTime;
         if(locationB  != null)
         {
-            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed);
-            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed));
+            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed) - (locationA.gameObject.transform.forward * Offset);
+            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed)) + (locationA.gameObject.transform.up * Offset);
         }
+
+        transform.LookAt(LookAt.transform);
+        //transform.RotateAround(transform.position, transform.right, 90);
 
         if (LerpAlpha * CameraSpeed > 1)
         {
