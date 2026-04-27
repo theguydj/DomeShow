@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This script moves the cammera between 2 designated locations.
+        //This script moves the camera between 2 designated locations.
 
         //transform.LookAt(LookAt.transform);
 
@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
 
 
 
-        //alows us to shose between 2 different waypoints
+        //allows us to chose between 2 different waypoints
 
         if (Input.GetKeyDown(KeyCode.A))
         {
