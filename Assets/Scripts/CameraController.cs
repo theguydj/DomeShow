@@ -19,12 +19,11 @@ public class CameraController : MonoBehaviour
     public float CameraSpeed = 2.0f;
     public float LookAtTargetSpeed = 1.0f;
     public float LerpAlpha = 0f;
-    public float Offset;
 
     public GameObject LookAt;
     public GameObject Trigger;
 
-    public GameObject Test;
+    
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,17 +35,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This script moves the cammera between 2 designated locations. 
+        //This script moves the cammera between 2 designated locations.
+
+        //transform.LookAt(LookAt.transform);
 
         LerpAlpha += Time.deltaTime;
         if(locationB  != null)
         {
-            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed) - (locationA.gameObject.transform.forward * Offset);
-            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed)) + (locationA.gameObject.transform.up * Offset);
+            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed);
+            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed));
         }
-
-        transform.LookAt(LookAt.transform);
-        transform.RotateAround(transform.position, transform.right, 90);
 
         if (LerpAlpha * CameraSpeed > 1)
         {
@@ -57,6 +55,8 @@ public class CameraController : MonoBehaviour
                 LerpAlpha = 0f;
             }
         }
+
+
 
         //alows us to shose between 2 different waypoints
 
