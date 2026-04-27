@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour
     {
         //This script moves the cammera between 2 designated locations.
 
-        transform.LookAt(LookAt.transform);
+        //transform.LookAt(LookAt.transform);
 
         LerpAlpha += Time.deltaTime;
         if(locationB  != null)
