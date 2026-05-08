@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
         if(locationB  != null)
         {
             transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed) - (locationA.gameObject.transform.forward * Offset);
-            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed)); //+ (locationA.gameObject.transform.up * Offset);
+            LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed)) + (locationA.gameObject.transform.up * Offset);
         }
 
         transform.LookAt(LookAt.transform);
@@ -90,7 +90,7 @@ public class CameraController : MonoBehaviour
     }
 
 
-    //Runs this code when a collision box is entered
+
 
    
 
