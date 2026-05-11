@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class GreyLadyJumpScare : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class GreyLadyJumpScare : MonoBehaviour
 
     public GameObject ObjectToMove;
     public float MoveLeftAmount;
+    public float MoveSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +24,11 @@ public class GreyLadyJumpScare : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
-        ObjectToMove.transform.position += new Vector3 (MoveLeftAmount, 0, 0);
+        Debug.Log("TriggerHit Hit");
+
+        transform.position = Vector3.Lerp(transform.position, ObjectToMove.position,
+        MoveLeftAmount * Time.deltaTime);
+
     }
 }
 
