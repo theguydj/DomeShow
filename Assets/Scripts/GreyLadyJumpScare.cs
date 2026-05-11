@@ -26,8 +26,7 @@ public class GreyLadyJumpScare : MonoBehaviour
     {
         Debug.Log("TriggerHit Hit");
 
-        transform.position = Vector3.Lerp(transform.position, ObjectToMove.position,
-        MoveLeftAmount * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, Target.position, MoveLeftAmount * Time.deltaTime);
 
     }
 }
