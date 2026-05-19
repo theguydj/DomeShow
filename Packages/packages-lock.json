@@ -1,15 +1,5 @@
 {
   "dependencies": {
-    "com.pfc.dome-tools": {
-      "version": "0.8.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.shadergraph": "12.1.12"
-      },
-      "url": "https://package.openupm.com"
-    },
     "com.unity.ai.navigation": {
       "version": "2.0.8",
       "depth": 0,
