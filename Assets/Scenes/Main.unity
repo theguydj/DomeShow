@@ -38246,6 +38246,7 @@ GameObject:
   - component: {fileID: 1245252389}
   - component: {fileID: 1245252388}
   - component: {fileID: 1245252395}
+  - component: {fileID: 1245252396}
   m_Layer: 6
   m_Name: MainCAmeraTest
   m_TagString: Player
@@ -38448,6 +38449,22 @@ MonoBehaviour:
   TraumaExponent: 1
   MaximumAngularShake: {x: 5, y: 5, z: 5}
   MaximumTranslationShake: {x: 0.75, y: 0.75, z: 0.75}
+--- !u!114 &1245252396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245252387}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd67cadeb53835a48a38315ce6d226af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSmoothTurn
+  target: {fileID: 688428831}
+  locationA: {fileID: 853351984}
+  locationB: {fileID: 853351984}
+  speed: 3
 --- !u!1 &1246481178
 GameObject:
   m_ObjectHideFlags: 0
