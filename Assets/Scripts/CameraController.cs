@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
             
         }
 
-        float singleStep = CameraSpeed * Time.deltaTime;
+        float singleStep = LookAtTargetSpeed * Time.deltaTime;
 
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 
