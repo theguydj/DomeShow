@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,19 +15,19 @@ public class CameraController : MonoBehaviour
     public WaypointScript locationA;
     public WaypointScript locationB;
 
-    public bool isTrigger = false;
-    public bool Triggered = false;
+  //  public bool isTrigger = false;
+  //  public bool Triggered = false;
 
     public float CameraSpeed = 2.0f;
     public float LookAtTargetSpeed = 1.0f;
     public float LerpAlpha = 0f;
     public float Offset = 0f;
 
-    public GameObject LookAt;
-    public GameObject Trigger;
+    // public GameObject LookAt;
+    
 
 
-
+    public Quaternion rotationB = Quaternion.Euler(30, 0, 0);
     
     
 
@@ -47,9 +48,10 @@ public class CameraController : MonoBehaviour
        // transform.LookAt(LookAt.transform);
 
         LerpAlpha += Time.deltaTime;
+        //LerpAlpha = Mathf.Min(LerpAlpha, 1f);
         if(locationB  != null)
         {
-            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed) - (locationA.gameObject.transform.forward * Offset);
+            transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * CameraSpeed); //- (locationA.gameObject.transform.forward * Offset);
            // LookAt.transform.position = Vector3.Lerp(locationA.transform.position, locationB.transform.position, LerpAlpha * (CameraSpeed + LookAtTargetSpeed)) + (locationA.gameObject.transform.up * Offset);
         }
 
@@ -67,14 +69,18 @@ public class CameraController : MonoBehaviour
             
         }
 
+
+       
+
+
         float singleStep = LookAtTargetSpeed * Time.deltaTime;
 
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 
-        transform.rotation = Quaternion.LookRotation(newDirection);
+        //transform.rotation = Quaternion.LookRotation(newDirection);
 
 
-
+        gameObject.transform.rotation = locationB.newDirection;
 
 
         if (LerpAlpha * CameraSpeed > 1)
@@ -84,17 +90,9 @@ public class CameraController : MonoBehaviour
                 locationA = locationB;
                 locationB = locationB.NextWaypoint;
                 LerpAlpha = 0f;
+                //gameObject.transform.rotation = locationA.newDirection;
             }
         }
-
-
-
-
-
-       
-
-        
-
 
 
         //alows us to shose between 2 different waypoints
@@ -119,7 +117,7 @@ public class CameraController : MonoBehaviour
 
 
 
-
+        
         
     }
 

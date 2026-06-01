@@ -2,22 +2,10 @@ using UnityEngine;
 
 public class WaypointScript : MonoBehaviour
 {
-
     
-    public WaypointScript NextWaypoint;
-    public WaypointScript waypointPointOptionA;
-    public WaypointScript waypointPointOptionB;
+    public WaypointScript NextWaypoint = null;
+    public WaypointScript waypointPointOptionA = null;
+    public WaypointScript waypointPointOptionB = null;
+    public Quaternion newDirection = Quaternion.identity;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //Debug.Log("Hello World");
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
