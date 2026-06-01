@@ -20,11 +20,11 @@ public class CollisionBoxScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("BloackerScript Started");
+        Debug.Log("BloackerScript Started");
 
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("BloackerScript Left Worked");
+            Debug.Log("BloackerScript Left Worked");
             objectToSpawn.SetActive(true);
 
         }

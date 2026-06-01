@@ -51,9 +51,6 @@ public class GreyLadyJumpScare : MonoBehaviour
                 //Debug.Log("TimerRuns");
                 despawnTimer = true;
             }
-
-
-
         }
 
         if (despawnTimer)
