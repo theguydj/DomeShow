@@ -43,6 +43,8 @@ public class GreyLadyJumpScare : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float percentageComplete = elapsedTime / MoveDuration;
 
+            
+
             ObjectToMove.transform.position = Vector3.Lerp(startPosition, endPosition, percentageComplete);
 
             //Debug.Log("percentage :" + percentageComplete);
@@ -75,8 +77,9 @@ public class GreyLadyJumpScare : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
+        
         hasTriggered = true;
     }
 }
