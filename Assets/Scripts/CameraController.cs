@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Threading;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -19,7 +20,8 @@ public class CameraController : MonoBehaviour
   //  public bool Triggered = false;
 
     public float CameraSpeed = 2.0f;
-    public float LookAtTargetSpeed = 1.0f;
+    public float RotationSpeed = 0.01f;
+    public float rotateLerp = 0.0f;
     public float LerpAlpha = 0f;
     public float Offset = 0f;
 
@@ -58,14 +60,14 @@ public class CameraController : MonoBehaviour
 
         //transform.LookAt(LookAt.transform);
         // transform.RotateAround(transform.position, transform.right, 90);
-        Vector3 targetDirection = Vector3.zero;
+       // Vector3 targetDirection = Vector3.zero;
 
 
         if (locationB != null)
         {
             
             
-                targetDirection = locationB.transform.position - transform.position;
+       //         targetDirection = locationB.transform.position - transform.position;
             
         }
 
@@ -73,15 +75,17 @@ public class CameraController : MonoBehaviour
        
 
 
-        float singleStep = LookAtTargetSpeed * Time.deltaTime;
+      //  float singleStep = LookAtTargetSpeed * Time.deltaTime;
 
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+      //  Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 
         //transform.rotation = Quaternion.LookRotation(newDirection);
 
 
-        gameObject.transform.rotation = locationB.newDirection;
-
+        if (locationB != null)
+        {
+            gameObject.transform.rotation = locationB.newDirection;
+        }
 
         if (LerpAlpha * CameraSpeed > 1)
         {
